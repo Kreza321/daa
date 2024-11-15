@@ -1,0 +1,38 @@
+# Gunakan image dasar PHP dengan Apache
+FROM php:7.4-apache
+
+# Perbarui package manager dan instal dependencies yang diperlukan
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    git \
+    unzip \
+    zip \
+    libonig-dev \
+    libicu-dev \
+    libxml2-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-install pdo mbstring intl opcache
+
+# Periksa apakah MongoDB sudah terpasang, jika belum pasang dari PECL
+RUN pecl list | grep mongodb || (pecl install mongodb && docker-php-ext-enable mongodb)
+
+# Periksa apakah Redis sudah terpasang, jika belum pasang dari PECL
+RUN pecl install redis && docker-php-ext-enable redis
+
+# Bersihkan cache apt agar image lebih ringan
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Salin file aplikasi ke direktori kerja container
+COPY . /var/www/html
+
+# Beri izin pada direktori kerja agar Apache dapat mengaksesnya
+RUN chown -R www-data:www-data /var/www/html
+
+# Expose port 80 untuk Apache
+EXPOSE 80
+
+# Jalankan Apache di foreground
+CMD ["apache2-foreground"]

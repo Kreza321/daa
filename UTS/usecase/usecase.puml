@@ -1,0 +1,29 @@
+@startuml mahasiswa
+
+actor "Admin Beasiswa" as Admin
+actor "Pelamar Beasiswa" as Pelamar
+actor "Pemangku Kepentingan" as Stakeholder
+actor "Tim IT" as IT
+
+usecase "Mendaftar Beasiswa" as UC1
+usecase "Mengumpulkan Data Pelamar" as UC2
+usecase "Menganalisis Data Beasiswa" as UC3
+usecase "Membuat Laporan Beasiswa" as UC4
+usecase "Menampilkan Dashboard" as UC5
+usecase "Mengelola Data Pengguna" as UC6
+usecase "Menyediakan Dukungan Teknis" as UC7
+
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+Admin --> UC6
+Stakeholder --> UC5
+Pelamar --> UC1
+IT --> UC7
+
+UC1 --> UC2 : "Pelamar mengisi formulir"
+UC2 --> UC3 : "Data pelamar dikumpulkan untuk analisis"
+UC3 --> UC4 : "Analisis data beasiswa"
+UC4 --> UC5 : "Membuat laporan yang ditampilkan di dashboard"
+
+@enduml

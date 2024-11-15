@@ -1,0 +1,104 @@
+@startuml mahasiswa
+
+!define RECTANGLE class
+
+RECTANGLE "1. Executive Summary Snapshot" {
+  :Tujuan proyek: Sistem pengelolaan data beasiswa terintegrasi;
+  :Tujuan: Memudahkan proses pengumpulan, analisis, dan pelaporan data beasiswa;
+}
+
+RECTANGLE "2. Project Description" {
+  :Pengumpulan data penerima dan pelamar beasiswa;
+  :Analisis distribusi beasiswa berdasarkan faktor demografis dan kualitatif;
+  :Pembuatan laporan visual (dashboard);
+}
+
+RECTANGLE "3. Project Scope" {
+  :In Scope: Pengembangan sistem, analisis distribusi, laporan dashboard;
+  :Out of Scope: Peningkatan anggaran, legalitas pelamar;
+}
+
+RECTANGLE "4. Business Drivers" {
+  :Meningkatkan efisiensi administrasi;
+  :Meningkatkan transparansi;
+  :Distribusi beasiswa merata;
+}
+
+RECTANGLE "5. Current Process" {
+  :Data beasiswa tersebar dalam format manual (spreadsheet);
+  :Proses analisis manual memakan waktu;
+}
+
+RECTANGLE "6. Proposed Process" {
+  :Pengumpulan data otomatis melalui portal online;
+  :Analisis data real-time menggunakan alat analitik;
+  :Laporan visualisasi yang dapat diakses oleh pemangku kepentingan;
+}
+
+RECTANGLE "7. Functional Requirements" {
+  :FR1 - Pengumpulan data penerima dan pelamar;
+  :FR2 - Analisis distribusi berdasarkan wilayah;
+  :FR3 - Pembuatan laporan otomatis berbasis data;
+}
+
+RECTANGLE "8. Non-Functional Requirements" {
+  :NFR1 - Akses sistem 99.5%;
+  :NFR2 - Enkripsi data untuk privasi;
+  :NFR3 - Respon transaksi 3 detik;
+}
+
+RECTANGLE "9. Financial Statements" {
+  :Investasi awal [angka], ROI setelah 2 tahun;
+}
+
+RECTANGLE "10. Cost and Benefit" {
+  :Biaya - Pengembangan sistem, pelatihan staf;
+  :Manfaat - Efisiensi operasional, transparansi;
+}
+
+RECTANGLE "11. Resources" {
+  :Tim IT untuk pengembangan sistem;
+  :Server/cloud untuk penyimpanan data;
+}
+
+RECTANGLE "12. Schedule, Timeline, and Deadlines" {
+  :Tahap 1 - Pengumpulan kebutuhan (1 bulan);
+  :Tahap 2 - Pengembangan sistem (3 bulan);
+  :Tahap 3 - Implementasi dan pelatihan (2 bulan);
+}
+
+RECTANGLE "13. Assumptions" {
+  :Data awal tersedia dari institusi pendidikan;
+  :Pengguna siap terima pelatihan;
+}
+
+RECTANGLE "14. Glossary" {
+  :Beasiswa - Bantuan keuangan untuk pendidikan;
+  :MVP - Minimum Viable Product;
+}
+
+RECTANGLE "15. References" {
+  :Template BRD Smartsheet;
+}
+
+RECTANGLE "16. Appendix" {
+  :Lampiran - Diagram alur proses, mockup sistem;
+}
+
+"1. Executive Summary Snapshot" --> "2. Project Description"
+"2. Project Description" --> "3. Project Scope"
+"3. Project Scope" --> "4. Business Drivers"
+"4. Business Drivers" --> "5. Current Process"
+"5. Current Process" --> "6. Proposed Process"
+"6. Proposed Process" --> "7. Functional Requirements"
+"7. Functional Requirements" --> "8. Non-Functional Requirements"
+"8. Non-Functional Requirements" --> "9. Financial Statements"
+"9. Financial Statements" --> "10. Cost and Benefit"
+"10. Cost and Benefit" --> "11. Resources"
+"11. Resources" --> "12. Schedule, Timeline, and Deadlines"
+"12. Schedule, Timeline, and Deadlines" --> "13. Assumptions"
+"13. Assumptions" --> "14. Glossary"
+"14. Glossary" --> "15. References"
+"15. References" --> "16. Appendix"
+
+@enduml
